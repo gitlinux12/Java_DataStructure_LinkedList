@@ -95,6 +95,20 @@ public class LinkedList  <Type extends Comparable<Type>>  {
 		if(isEmpty()) return null; 
 		else return head.item; 
 	}
+	public boolean search(Type item) {
+		if(index(item) == -1) return false;
+		else return true;
+	}
+	public int index(Type item) {
+		Node<Type> currentNode = head;
+		int i = 0; 
+		while(currentNode != null) {
+			if(currentNode.item.equals(item)) return i;
+			currentNode = currentNode.next;
+			i++;
+		}
+		return -1; 
+	}
 	
 	public String toString() {
 			if(head != null) return head.toString();
@@ -108,12 +122,16 @@ public class LinkedList  <Type extends Comparable<Type>>  {
 			
 			linkedList.append(70);
 			linkedList.insert(1,30);
-			System.out.println(linkedList);
-			System.out.println(linkedList.pop());
-			System.out.println(linkedList.popLast());
 			System.out.println("After Removeing New head element "+linkedList.headItem());
 			System.out.println(linkedList);
+			System.out.println(linkedList.search(30));
+			if(linkedList.search(30)) 
+				System.out.println("Element 30 found in linked list at position "+linkedList.index(30));
+			else 
+				System.out.println("Element 30 not found in linked list");
+		}
 			
 			
 		}
-}
+
+
