@@ -21,6 +21,16 @@ public class LinkedList  <Type extends Comparable<Type>>  {
 			if(head == null) return true;
 			else return false;
 		}
+		public int size() {
+			int count = 0;
+			Node<Type> currentNode = head;
+			// will traverse over linked list
+			while(currentNode != null) {
+				count++; // count nodes in linked list
+				currentNode = currentNode.next;
+			}
+			return count;
+		}
 
 	public void append(Type item) {
 			Node<Type> newNode = new Node<Type>(item);
@@ -30,6 +40,19 @@ public class LinkedList  <Type extends Comparable<Type>>  {
 				tail = newNode;
 			}
 		}
+	public void insert(int position, Type item) {
+		Node<Type> newNode = new Node<Type>(item);
+		if(position == 0) add(item);  
+		else if(size() <= position) append(item); 
+		else if (isEmpty()) head = tail = newNode; 
+		else {
+			Node<Type> currentNode = head;
+			for (int i = 0; i < (position - 1); i++) currentNode = currentNode.next;
+			newNode.next = currentNode.next;
+			currentNode.next = newNode;
+		}
+	}
+	
 	public String toString() {
 			if(head != null) return head.toString();
 			else return null;
@@ -39,8 +62,9 @@ public class LinkedList  <Type extends Comparable<Type>>  {
 			System.out.println("Welcome to linked list program");
 			LinkedList linkedList = new LinkedList<Integer>();
 			linkedList.append(56);
-			linkedList.append(30);
+			
 			linkedList.append(70);
+			linkedList.insert(1,30);
 			System.out.println(linkedList);
 			
 			
