@@ -1,49 +1,48 @@
 package LinkedList;
 
-public class LinkedList {
-	Node head;
-
-	static class Node {
-		int data;
-		Node next;
-
-		Node(int d) {
-			data = d;
-			next = null;
+public class LinkedList  <Type extends Comparable<Type>>  {
+	
+		Node<Type> head; // point to first node of the linked list
+		Node<Type> tail; // point to last node of the linked list
+		
+		
+		LinkedList(){
+			head = null;
+			tail = null;
 		}
-	}
-
-	public static LinkedList insert(LinkedList list, int data) {
-		Node new_node = new Node(data);
-		if (list.head == null) {
-			list.head = new_node;
-		} else {
-			Node last = list.head;
-			while (last.next != null) {
-				last = last.next;
+		public void add(Type item) {
+			if (isEmpty()) head = tail = new Node<Type>(item);
+			else {
+				Node<Type> tempNode = new Node<Type>(item);
+				tempNode.next = head;				head = tempNode;
 			}
-			last.next = new_node;
+		}		
+		public boolean isEmpty() {
+			if(head == null) return true;
+			else return false;
 		}
-		return list;
-	}
 
-	public static void printList(LinkedList list) {
-		Node currNode = list.head;
-
-		System.out.print("LinkedList: ");
-
-		while (currNode != null) {
-			System.out.print("key = " + currNode.data + ", ");
-			currNode = currNode.next;
+	public void append(Type item) {
+			Node<Type> newNode = new Node<Type>(item);
+			if (isEmpty()) head = tail = newNode;
+			else {
+				tail.next = newNode;
+				tail = newNode;
+			}
 		}
-	}
-
-public static void main(String[] args) {
-	LinkedList list = new LinkedList();
-	list = insert(list, 70);
-	list = insert(list, 30);
-	list = insert(list, 56);
-	printList(list);
-}
-
+	public String toString() {
+			if(head != null) return head.toString();
+			else return null;
+		}
+		
+		public static void main(String[] args) {
+			System.out.println("Welcome to linked list program");
+			LinkedList linkedList = new LinkedList<Integer>();
+			linkedList.append(56);
+			linkedList.append(30);
+			linkedList.append(70);
+			System.out.println(linkedList);
+			
+			
+		}
 }
