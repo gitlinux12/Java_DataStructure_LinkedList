@@ -68,6 +68,21 @@ public class LinkedList  <Type extends Comparable<Type>>  {
 			currentNode = currentNode.next;
 		}
 	}
+	public Type popLast() {
+		if(isEmpty()) return null; 
+		else if(size() == 1) {
+			Type tempItem = head.item;
+			head = tail = null;
+			return tempItem;
+		} else {
+			Type tempItem = tail.item;
+			Node<Type> currentNode = head;
+			while(currentNode.next != tail) currentNode = currentNode.next;
+			tail = currentNode;
+			tail.next = null;
+			return tempItem;
+		}
+	}
 	public Type pop() {
 		Type currentHeadItem=headItem();
 		if(currentHeadItem !=null) {
@@ -95,6 +110,7 @@ public class LinkedList  <Type extends Comparable<Type>>  {
 			linkedList.insert(1,30);
 			System.out.println(linkedList);
 			System.out.println(linkedList.pop());
+			System.out.println(linkedList.popLast());
 			System.out.println("After Removeing New head element "+linkedList.headItem());
 			System.out.println(linkedList);
 			
