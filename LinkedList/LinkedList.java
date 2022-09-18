@@ -14,7 +14,8 @@ public class LinkedList  <Type extends Comparable<Type>>  {
 			if (isEmpty()) head = tail = new Node<Type>(item);
 			else {
 				Node<Type> tempNode = new Node<Type>(item);
-				tempNode.next = head;				head = tempNode;
+				tempNode.next = head;				
+				head = tempNode;
 			}
 		}		
 		public boolean isEmpty() {
@@ -122,13 +123,11 @@ public class LinkedList  <Type extends Comparable<Type>>  {
 			
 			linkedList.append(70);
 			linkedList.insert(1,30);
-			System.out.println("After Removeing New head element "+linkedList.headItem());
 			System.out.println(linkedList);
-			System.out.println(linkedList.search(30));
-			if(linkedList.search(30)) 
-				System.out.println("Element 30 found in linked list at position "+linkedList.index(30));
-			else 
-				System.out.println("Element 30 not found in linked list");
+			int indexOf30 = linkedList.index(30);
+			linkedList.insert(indexOf30 + 1, 40);
+			System.out.println("Insert 40 after 30 in linked list New list is");
+			System.out.println(linkedList);
 		}
 			
 			
