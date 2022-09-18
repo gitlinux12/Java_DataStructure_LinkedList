@@ -40,9 +40,9 @@ public class LinkedList {
 
 public static void main(String[] args) {
 	LinkedList list = new LinkedList();
-	list = insert(list, 56);
-	list = insert(list, 30);
 	list = insert(list, 70);
+	list = insert(list, 30);
+	list = insert(list, 56);
 	printList(list);
 }
 
