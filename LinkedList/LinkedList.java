@@ -117,26 +117,14 @@ public class LinkedList  <Type extends Comparable<Type>>  {
 		}
 		
 		public static void main(String[] args) {
-			System.out.println("Welcome to linked list program");
-			LinkedList linkedList = new LinkedList<Integer>();
-			linkedList.append(56);
-			
-			linkedList.append(70);
-			linkedList.insert(1,30);
-			System.out.println(linkedList);
-			int indexOf30 = linkedList.index(30);
-			linkedList.insert(indexOf30 + 1, 40);
-			System.out.println(linkedList);
-			if(linkedList.search(40)) {
-				System.out.println(" 40 is found in linked list");
-				linkedList.remove(40);
-				System.out.println(" 40 is removed from linked list");
-			} else {
-				System.out.println(" 40 is not found in linked list");
-			}
-			System.out.println("Size of linked list "+linkedList.size());
-			System.out.println(linkedList);
-		}	
+			System.out.println(" linked list program using asending");
+			SortedLinkedList sortedLinkedList = new SortedLinkedList<Integer>(SortedLinkedList.ASCENDING);
+			sortedLinkedList.add(56);
+			sortedLinkedList.add(30);
+			sortedLinkedList.add(40);
+			sortedLinkedList.add(70);
+			System.out.println(sortedLinkedList);
+		}
 		}
 
 
