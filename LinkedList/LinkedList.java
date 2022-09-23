@@ -126,11 +126,17 @@ public class LinkedList  <Type extends Comparable<Type>>  {
 			System.out.println(linkedList);
 			int indexOf30 = linkedList.index(30);
 			linkedList.insert(indexOf30 + 1, 40);
-			System.out.println("Insert 40 after 30 in linked list New list is");
 			System.out.println(linkedList);
-		}
-			
-			
+			if(linkedList.search(40)) {
+				System.out.println(" 40 is found in linked list");
+				linkedList.remove(40);
+				System.out.println(" 40 is removed from linked list");
+			} else {
+				System.out.println(" 40 is not found in linked list");
+			}
+			System.out.println("Size of linked list "+linkedList.size());
+			System.out.println(linkedList);
+		}	
 		}
 
 
